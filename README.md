@@ -11,17 +11,20 @@ Here are some examples of how to use the scrapy shell to understand the HTML str
 scrapy shell 'https://scrapy.org' --nolog
 
 ```
-Run the command `response.xpath("//title/text()").get()` to get the title of the page.
+- Run the command `fetch("https://old.reddit.com/")` to fetch a specific page.
+- Run `response.xpath("//title/text()").get()` to get the title of the page.
 
 ```bash
 scrapy shell 'https://www.deklerkbv.nl/nl/' --nolog
 ```
-Run the command `response.xpath("//a").get()` to get the first anchor tag of the page.
+- Run the command `response.xpath("//a/@href").getall()` to get the all anchor tags of the page.
 
 ## Creating a spider
 Steps to create a spider:
 - Make a copy of the `spider.py` file and name it according to the website you want to scrape.
 - Modify the structure you want to process, possibly by first using the shell (see above).
+
+Have a look at the [scrapy documentation](https://docs.scrapy.org/en/2.11/intro/overview.html) for more inspiration on how to structure your spider.
 
 ## Running the spider
 Run the spider and save the output to a JSON file.
