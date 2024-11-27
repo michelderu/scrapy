@@ -28,3 +28,13 @@ Run the spider and save the output to a JSON file.
 ```bash
 scrapy runspider deklerkbv.py -o out.json
 ```
+
+## Converting the JSON to a plain newline-separated list of URLs
+```bash
+cat out.json | jq -r '.[].url'
+```
+or:
+```bash
+python convert_to_list.py
+```
+Now you can pass the output to the [URL List component](https://github.com/michelderu/langflow-playground) in Langflow.
